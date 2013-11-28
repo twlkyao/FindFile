@@ -18,41 +18,6 @@ import java.util.ArrayList;
 public class FileOperation {
 	
 	/**
-	 * The hex digits, used to convert the bytes to hex digits,
-	 * it is used by the apache checksum
-	 */
-	private static char hexDigits[] = {
-		'0', '1', '2', '3',
-		'4', '5', '6', '7',
-		'8', '9', 'a', 'b',
-		'c', 'd', 'e', 'f'
-		};
-	
-	private static MessageDigest md5digest = null; // Used to store the md5 digest information
-	// Check whether the MD5 MessageDigest is supported
-	static {
-		try {
-			md5digest = MessageDigest.getInstance("MD5");
-		} catch  (NoSuchAlgorithmException nsaex) {
-			System.err.println(FileOperation.class.getName()
-				+ "Initialized error!, MessageDigest doesn't support MD5!");
-			nsaex.printStackTrace();
-		}
-	}
-	
-	private static MessageDigest sha1digest = null; // Used to store the sha1 digest information
-	// Check whether the SHA1 MessageDigest is supported
-	static {
-		try {
-			sha1digest = MessageDigest.getInstance("SHA-1");
-		} catch  (NoSuchAlgorithmException nsaex) {
-			System.err.println(FileOperation.class.getName()
-				+ "Initialized error!, MessageDigest doesn't support SHA1!");
-			nsaex.printStackTrace();
-		}
-	}
-	
-	/**
 	 * Find the specified files according to the filepath
 	 * @param keyword The keyword
 	 * @param filepath The filepath to start
